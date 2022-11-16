@@ -1,0 +1,11 @@
+Manager:
+    HomeScreen:
+    FirstScreen:
+
+<HomeScreen>:
+    name: "Home"
+    Button:
+        text:"First Screen"
+        on_release:
+        app.root.current = "First"
+        root.manager.transition.direction = "left"
