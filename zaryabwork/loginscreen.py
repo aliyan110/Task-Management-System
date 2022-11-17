@@ -12,7 +12,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.stacklayout import StackLayout
 
 
-## Tip: always to the settings first then add data to layouts
+## Tip: always do the settings first then add data to layouts
 ## Tip2: always name the variables meaningful and with the type as well in-order to make code more readable.
 
 class SayHello(FloatLayout):
@@ -27,7 +27,7 @@ class SayHello(FloatLayout):
 
         #image widget self.canvas.before will set image Pic.png as background
         with self.canvas.before:
-            self.bg = Rectangle(pos=self.pos, size=self.size, source='Pic.png')
+            self.bg = Rectangle(pos=self.pos, size=self.size, source='logo.jpeg')
         # self.window.add_widget(Image(source = "Pic.png"))
  
         # label widget
@@ -152,8 +152,8 @@ class SayHello(FloatLayout):
     def assign_botton_pressed(self,instance):
         pass
 
-    # def on_size(self, *args):   
-    #     self.bg.size = self.size
+    def on_size(self, *args):   
+        self.bg.size = self.size
         
 class SplashApp(App):
     def build(self):
