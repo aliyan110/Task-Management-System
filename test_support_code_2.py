@@ -66,7 +66,6 @@ class SayHello(FloatLayout):
                         
                         )
         
-
         self.label_dont_account = Label(
                          text="didn't have account",
                          size_hint = (None, None),
@@ -96,6 +95,7 @@ class SayHello(FloatLayout):
 
         ## self itself is a FloatLayout, so add the gridlayout(self.window) to it.
         self.add_widget(self.window)
+        self.opacity = 0.50
         #return self.window
 
     def login_botton_pressed(self, instance):
