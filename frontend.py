@@ -34,7 +34,7 @@ class MyLayout(BoxLayout):
         self.top_grid.cols = 2
         self.top_grid.size_hint= (0.6,0.8)
         self.top_grid.pos_hint= {"center_x":0.5, "center_y":0.5}
-
+        
 
 
         # Add widget
@@ -117,6 +117,10 @@ class MyLayout(BoxLayout):
         self.username.text =''
         self.password.text =''
         self.cpass.text =''
+    
+    def on_size(self, *args):   
+        self.bg.size = self.size
+     
     def push(self, instance):
         pass
 class MyApp(App):
