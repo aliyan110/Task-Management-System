@@ -26,8 +26,7 @@ class SayHello(FloatLayout):
         row_default_height=50)
         self.top_grid.cols = 5
         self.top_grid.size_hint= (1,0.2)
-        self.top_grid.pos_hint= {"center_x":0.5, "center_y":0}
-        self.top_grid.Color="#17202A"         
+        self.top_grid.pos_hint= {"center_x":0.5, "center_y":0.9}      
         # Adding logo on top left
         self.Group_Icon=Image(size_hint=(0.35,0.1), pos={0,0.1}, source='logo.png')
         self.top_grid.add_widget(self.Group_Icon)
@@ -54,9 +53,41 @@ class SayHello(FloatLayout):
         self.window = GridLayout()
         self.window.cols = 1
         self.window.size_hint = (0.6, 0.7)
-        self.window.pos_hint = {"center_x": 0.35, "center_y":0.6}
-        Window.clearcolor=(0,0,0,1)
+        self.window.pos_hint = {"center_x": 0.35, "center_y":0.55}
+        self.window.clearcolor=(0,0,0,1)
 
+        ## Creating a layout for inserting images.
+        self.imageside = GridLayout()
+        self.imageside.cols = 1
+        self.imageside.size_hint = (0.3, 0.7)
+        self.imageside.pos_hint = {"center_x": 0.8, "center_y":0.5}
+
+        self.vision_collector= GridLayout()
+        self.vision_collector.cols=1
+
+        self.mission_collector= GridLayout()
+        self.mission_collector.cols=1
+
+        self.logo=Image(pos=self.pos, size=self.size, source='logo.jpeg')
+        self.logo2=Image(pos=self.pos, size=self.size, source='logo.jpeg')
+        self.mission=Label(text='Mission Statement', font_size=16, bold=True, color= '#000000')
+        self.mission_statement=Label(text='Our mission is to be market\nleader developing simple applications \n creating a revolution in development\n market',font_size=12, halign="left", color= '#1C2833')
+
+        self.vision= Label(text="Achievements", font_size=16, halign="left", color='#000000', bold=True)
+        self.vision_statement= Label(text='%%here will be the recent achievements\n of our company%%',font_size=12, halign="left",color='#000000')
+        
+        self.mission_collector.add_widget(self.logo)
+        self.mission_collector.add_widget(self.mission)
+        self.mission_collector.add_widget(self.mission_statement)
+
+        self.vision_collector.add_widget(self.logo2)
+        self.vision_collector.add_widget(self.vision)
+        self.vision_collector.add_widget(self.vision_statement)
+
+        self.imageside.add_widget(self.mission_collector)
+        self.imageside.add_widget(self.vision_collector)
+
+        self.add_widget(self.imageside)
 
 
         #image widget self.canvas.before will set image Pic.png as background
@@ -103,6 +134,14 @@ class SayHello(FloatLayout):
                       text = "Assign",
                       bold = True,
                       background_color = (0,0,2,1),
+                    #   spacing=10
+                      )
+
+        #button widget
+        self.button_cancel = Button(
+                      text = "Cancel",
+                      bold = True,
+                      background_color = (0.7,0,0,1),
                     #   spacing=10
                       )
         self.button_assign.pos_hint= (0,0.9)
@@ -184,7 +223,8 @@ class SayHello(FloatLayout):
         self.efforts.add_widget(self.text_input_deadline)
         self.collector.add_widget(self.assign_to)
         self.collector.add_widget(self.efforts)
-        self.assign_to.add_widget(self.button_assign)
+        self.assign_to.add_widget(self.button_cancel)
+        self.efforts.add_widget(self.button_assign)
         self.window.add_widget(self.collector)
 
 
