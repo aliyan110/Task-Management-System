@@ -31,7 +31,7 @@ from kivy.core.window import Window
 
 Window.clearcolor=(1,1,1,1)
 
-class MyApp(App):
+class second_screen:
     def build(self):
         layout = GridLayout()
         l1 =  Label(text="User Name", size_hint = (None,None), width = 200, height = 900, font_size = 15, bold = True, italic = True, color = (0,0,0,1))
@@ -39,7 +39,7 @@ class MyApp(App):
         layout.add_widget(l1)
         layout.add_widget(l2)
         return layout 
-        
+     
 #if _name_ == '_main_':
-MyApp().run()        
+# MyApp().run()        
 

@@ -9,10 +9,17 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.image import Image
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
-
+from kivy.uix.screenmanager import ScreenManager, Screen
+from test_support_code_ import second_screen
 
 ## Tip: always to the settings first then add data to layouts
 ## Tip2: always name the variables meaningful and with the type as well in-order to make code more readable.
+
+sm = ScreenManager()
+screens = [Screen(name='Title {}'.format(i)) for i in range(4)]
+for i in range(4):
+    sm.add_widget(screens[i])
+
 
 class SayHello(FloatLayout):
     def __init__(self, **kwargs):
@@ -93,13 +100,19 @@ class SayHello(FloatLayout):
         self.window.add_widget(self.label_dont_account)
         self.window.add_widget(self.button_login)
 
+        screens[0] = self.window
+        self.add_widget(screens[0])
+        screens[1] = second_screen.build(self)
+        print(sm.screen_names)
         ## self itself is a FloatLayout, so add the gridlayout(self.window) to it.
-        self.add_widget(self.window)
+        #self.add_widget(self.window)
         self.opacity = 0.50
         #return self.window
 
     def login_botton_pressed(self, instance):
-        self.greeting1.text = "Hello Mr. " + self.user.text + "...!"
+        self.remove_widget(screens[0])
+        self.add_widget(screens[1])
+        #sm.switch_to(screens[1], direction='right')
 
     def on_size(self, *args):   
         self.bg.size = self.size
