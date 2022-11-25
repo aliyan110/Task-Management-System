@@ -17,9 +17,10 @@ from kivy.core.window import Window
 
 
 
-class LogIn(FloatLayout):
+class LogIn_Screen(FloatLayout):
     def __init__(self, **kwargs):
-        super(LogIn, self).__init__(**kwargs)
+        super(LogIn_Screen, self).__init__(**kwargs)
+        self.name='login'
         Window.clearcolor=(1,1,1,1)
         ## Creating a gridlayout for user, pwd and other items etc.
         self.window = GridLayout()
@@ -130,6 +131,7 @@ class LogIn(FloatLayout):
                         bold = True,
                      #   background_color = '#335BFF',
                       )
+        self.button_sign_up.bind(on_release=self.button_Signup_pressed)
         
 
 
@@ -144,6 +146,8 @@ class LogIn(FloatLayout):
                       bold = True,
                       background_color = '#187603'
                       )
+
+        self.button_login.bind(on_press= self.button_login_pressed)
 
 
         self.Gap = Label(text="  \n   ")
@@ -173,16 +177,24 @@ class LogIn(FloatLayout):
         self.add_widget(self.window)
         #return self.window
 
-    #def botton_login_pressed(self, instance):
-        pass
+
         #self.greeting1.text = "Hello Mr. " + self.user.text + "...!"
 
     def on_size(self, *args):   
         self.bg.size = self.size
+
+    def button_login_pressed(self, instance):
+        self.text_input_user_name.text=''
+        self.text_input_user_password.text=''
         
+    def button_Signup_pressed(self, instance):
+        pass
+        # root.manager.current="register"
+        # root.manager.transition.direction="left" 
+
 class SplashApp(App):
     def build(self):
-        return LogIn()
+        return LogIn_Screen()
 
 if __name__ == "__main__":
     SplashApp().run()

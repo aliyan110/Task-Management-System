@@ -1,0 +1,30 @@
+WindowManager:
+    Main_Screen:
+    Second_Screen:
+
+<Main_Screen>:
+    name:'first'
+
+    GridLayout:
+        cols:1
+
+        Button:
+            text:"Next Page"
+            on_release:
+                app.root.current='second'
+                root.manager.transition.direction = "left"
+
+<Second_Screen>:
+    name:'second'
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text:"This is second Screen"
+
+        Button:
+            text:"Back"
+            on_release:
+                app.root.current='first'
+                root.manager.transition.direction= 'right'
