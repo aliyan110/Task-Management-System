@@ -5,7 +5,7 @@ import smtplib
 email_sender = 'samadzaidi6666@gmail.com'
 email_password = 'jsfvsquxugjyklcv'
 
-email_receiver = 'szeewaqar4725@gmail.com'
+email_receiver = ['samadzaidi666@gmail.com','aliyanmujahid2000@gmail.com']
 
 subject="Mail by python"
 body = """

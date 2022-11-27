@@ -73,7 +73,7 @@ class LogIn(FloatLayout):
                         bold = True
                         )
         # text input widget
-        self.text_input_user_name = TextInput(multiline = False, padding_y = (20, 20), 
+        self.text_input_user_name = TextInput(multiline = False, #padding_y = (20, 20), 
                                             size_hint = (1,0.3),
                                             width = 10,
                                             height=20)
@@ -88,7 +88,7 @@ class LogIn(FloatLayout):
                         )
         self.text_input_user_password = TextInput(
                     multiline = False,
-                    padding_y = (20,20),
+ #                   padding_y = (20,20),
                     size_hint = (1,0.3)
                     )
         
