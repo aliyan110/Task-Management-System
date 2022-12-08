@@ -7,7 +7,7 @@ email_password = 'jsfvsquxugjyklcv'
 
 email_receiver = ['samadzaidi666@gmail.com','aliyanmujahid2000@gmail.com']
 
-subject="Mail by python"
+subject="Mail by python vs-code"
 body = """
 Its a python generated email just to acknowledge that the code to send email via python has been cracked....!!!!
 """
