@@ -10,6 +10,7 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.core.window import Window
 from kivy.uix.anchorlayout import AnchorLayout
+from Assign_Task_Screen import SayHello
 
 class MyLayout(BoxLayout):
     def __init__(self, **kwargs):
@@ -32,6 +33,7 @@ class MyLayout(BoxLayout):
         self.top_grid.add_widget(self.Group_Icon)
 
         self.Assign_Task = Button(text='Assign Task')
+        self.Assign_Task.bind(on_press = self.assign_task_button_pressed)
         self.top_grid.add_widget(self.Assign_Task)
 
         self.My_Tasks = Button(text='My Tasks')
@@ -43,9 +45,14 @@ class MyLayout(BoxLayout):
         self.logout = Button(text='Logout',size_hint_x=None, width=80, pos_hint={1,None})
         self.top_grid.add_widget(self.logout)
 
-       
         # Add top_grid into main grid as a widget
         self.add_widget(self.top_grid)
+
+        ### add assign task button mechanism
+    def assign_task_button_pressed(self, instance):
+        self.remove_widget(self.top_grid)
+        self.add_widget(SayHello().get_my_layout())
+
 
 
 class MyApp(App):
