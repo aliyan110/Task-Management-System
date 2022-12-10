@@ -21,6 +21,7 @@ from kivy.uix.scrollview import ScrollView
 from email.message import EmailMessage
 import ssl
 import smtplib
+global Person
 Person = 'aa'
 
 sm = ScreenManager()
@@ -215,6 +216,8 @@ class LogIn_Screen(Screen):
                 login_status= "yes"
             
         if login_status == "yes":
+            # global Person
+            Person = self.text_input_user_name.text
             sm.current='mytasks'
 
               
@@ -286,6 +289,7 @@ class Task_Screen(Screen):
     def __init__(self, **kwargs):
         super(Task_Screen, self).__init__(**kwargs)
 
+        global Person
     # Add Task bar
 # Add Another Grid for text to be entered and one main grid for submit button and result
         self.top_grid = GridLayout(row_force_default=True,
@@ -460,7 +464,8 @@ class Assign_Task_Screen(Screen):
     def __init__(self, **kwargs):
         self.name='assigntask'
         super(Assign_Task_Screen, self).__init__(**kwargs)
-
+        
+        global Person
     # Add Task bar
 # Add Another Grid for text to be entered and one main grid for submit button and result
         self.top_grid = GridLayout(row_force_default=True,
@@ -806,6 +811,7 @@ class Registration_UI(Screen):
         self.orientation= 'vertical'
         Window.clearcolor=(1,1,1,1)
 
+        global Person
         #image widget self.canvas.before will set image Pic.png as background
         with self.canvas.before:
             self.bg= Image(pos=self.pos, size=self.size, source='Pic.png')
